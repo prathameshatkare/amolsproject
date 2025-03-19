@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #6366f1;
+            --primary-color: #4f46e5;
             --primary-light: #818cf8;
-            --primary-dark: #4f46e5;
+            --primary-dark: #3730a3;
             --secondary-color: #f9fafb;
             --text-primary: #1f2937;
             --text-secondary: #4b5563;
@@ -23,14 +23,13 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
         
         body {
             background-color: #f3f4f6;
             color: var(--text-primary);
             line-height: 1.6;
-            padding: 0;
             min-height: 100vh;
         }
         
@@ -43,13 +42,11 @@
         header {
             text-align: center;
             margin-bottom: 60px;
-            position: relative;
-            background-image: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+            background-image: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
             background-size: cover;
             background-position: center;
             padding: 100px 20px;
             border-radius: 16px;
-            margin-top: 20px;
             position: relative;
             overflow: hidden;
         }
@@ -272,8 +269,6 @@
             font-size: 0.925rem;
             margin-bottom: 24px;
             display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
             overflow: hidden;
             text-overflow: ellipsis;
         }
@@ -327,7 +322,7 @@
             text-align: center;
             padding: 30px 0;
             color: var(--text-light);
-            background-image: url('https://images.unsplash.com/photo-1557683311-eac922347aa1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+            background-image: url('https://images.unsplash.com/photo-1557683311-eac922347aa1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
             background-size: cover;
             background-position: center;
             padding: 60px 20px;
@@ -446,35 +441,36 @@
         <div class="filter-bar">
             <div class="search-box">
                 <i class="fas fa-search"></i>
-                <input type="text" placeholder="Search products...">
+                <input type="text" placeholder="Search products..." aria-label="Search products">
             </div>
         </div>
         
+        
         <div class="product-grid">
             {% for pro in prod %}
-            <div class="product-card">
-                <div class="product-image">
+            <article class="product-card">
+                <figure class="product-image">
                     {% if forloop.counter == 1 %}
-                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="{{ pro.name }}">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="{{ pro.name }}">
                     {% elif forloop.counter == 2 %}
-                    <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="{{ pro.name }}">
+                    <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="{{ pro.name }}">
                     {% elif forloop.counter == 3 %}
-                    <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="{{ pro.name }}">
+                    <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="{{ pro.name }}">
                     {% else %}
-                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="{{ pro.name }}">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="{{ pro.name }}">
                     {% endif %}
                     
                     {% if forloop.counter == 1 %}
-                    <div class="product-tag">New</div>
+                    <figcaption class="product-tag">New</figcaption>
                     {% elif forloop.counter == 3 %}
-                    <div class="product-tag">Best Seller</div>
+                    <figcaption class="product-tag">Best Seller</figcaption>
                     {% elif forloop.counter == 2 %}
-                    <div class="product-tag">Sale</div>
+                    <figcaption class="product-tag">Sale</figcaption>
                     {% endif %}
-                    <div class="product-favorite">
+                    <div class="product-favorite" role="button" aria-label="Add to favorites">
                         <i class="far fa-heart"></i>
                     </div>
-                </div>
+                </figure>
                 <div class="product-info">
                     <div class="product-meta">
                         <span class="product-category">
@@ -512,33 +508,43 @@
                     </div>
                     <p class="product-description">{{ pro.description }}</p>
                     <div class="product-actions">
-                        <button class="btn btn-primary">
+                        <button class="btn btn-primary" aria-label="Add to cart">
                             <i class="fas fa-shopping-cart"></i>
                             Add to Cart
                         </button>
-                        <button class="btn btn-secondary">
+                        <button class="btn btn-secondary" aria-label="View details">
                             <i class="fas fa-eye"></i>
                         </button>
                     </div>
                 </div>
-            </div>
+            </article>
             {% endfor %}
         </div>
         
-        <div class="footer">
+        
+        <footer class="footer">
             <h3>Join Our Community</h3>
             <p>Subscribe to get special offers, free giveaways, and once-in-a-lifetime deals.</p>
             <div>
-                <input type="email" placeholder="Enter your email" style="padding: 12px 20px; width: 300px; max-width: 80%; border-radius: 30px; border: none; margin-right: 10px;">
+                <input type="email" placeholder="Enter your email" aria-label="Email address" style="padding: 12px 20px; width: 300px; max-width: 80%; border-radius: 30px; border: none; margin-right: 10px;">
                 <button class="btn btn-primary" style="border-radius: 30px;">Subscribe</button>
             </div>
             <div class="social-icons">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
             </div>
-        </div>
+            
+        </footer>
     </div>
+    <div>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Add to Cart">
+        </form>
+    </div>
+    
 </body>
 </html>

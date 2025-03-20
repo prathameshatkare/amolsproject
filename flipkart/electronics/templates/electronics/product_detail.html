@@ -518,6 +518,14 @@
                     </div>
                 </div>
             </article>
+            <li>
+                {{pro.name}}<br><br>
+                {{pro.price}}<br><br>
+                {{pro.description}}<br><br>
+                <a href="{%url 'update_product' pro.id %}"><button type="button">Update</button></a>
+                <a href="{%url 'delete_product' pro.id %}"><button type="button">Delete</button></a>
+
+            </li>
             {% endfor %}
         </div>
         
@@ -534,6 +542,8 @@
                 <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                 <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+
+
             </div>
             
         </footer>
